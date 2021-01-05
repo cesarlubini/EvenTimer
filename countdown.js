@@ -1,4 +1,4 @@
-const finalDate = new Date(2021,01,09).getTime();
+const finalDate = new Date(2021,00,09).getTime();
 
 const $ = document.querySelector.bind(document);
 const dayInput = $('.day');
