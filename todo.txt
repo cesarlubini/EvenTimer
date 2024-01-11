@@ -1,0 +1,5 @@
+[x] Adicionar campo para entrar data
+[x] Adicionar um campo para o Nome do evento
+[x] Data ser salva no localstorage
+[ ] Desenhar layout conforme referencia
+[ ] Se não tiver data, mudar a frase para "Para começar, cadastre uma data"

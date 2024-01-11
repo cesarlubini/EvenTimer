@@ -1,0 +1,58 @@
+.countdown {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  
+}
+
+.block {
+  margin: 1rem;
+}
+
+.digit,
+.today {
+  font-size: 5rem;
+  font-weight: 700;
+  margin:0;
+  padding: 0 1rem;
+}
+
+.text {
+  font-size: .875rem;
+  font-weight: 300;
+  margin: 0;
+  padding: .5rem;
+}
+
+@media (max-width: 650px) {
+  .countdown {
+    flex-direction: column;
+  }
+
+  .content {
+    margin-bottom: 2rem;
+  }
+
+  .content::after {
+    width: 60px;
+
+  }
+
+  .content__text {
+    font-size: 1rem;
+    max-width: 60%;
+  }
+
+  .block {
+    margin: 0rem;
+  }
+
+  .digit,
+  .today {
+    font-size: 3rem;
+  }
+
+  .text {
+    padding: 0 0 1.25rem;
+  }
+}

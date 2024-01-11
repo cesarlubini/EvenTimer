@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/eventos.css">
+  <link rel="stylesheet" href="css/countdown.css">
 </head>
+
 <body>
   <main class="page">
-    <section class="content">
-      <p class="content__text">Tempo restante para ver minha quindinzinha 🍮</p>
-    </section>
-    <div class="today hide">É hoje!</div>
+    <!-- <div class="today esconder">É hoje!</div>
     <section class="countdown">
       <div class="block">
         <p class="day digit">00</p>
@@ -30,8 +31,38 @@
         <p class="second digit">00</p>
         <p class="text">Segundo(s)</p> 
       </div>
+    </section> -->
+
+    <section class="conteudo">
+      <h2 class="titulo">Eventos Cadastrados</h2>
+      <span class="separador"></span>
+      <section class="eventos">
+          <ul class="eventosLista">
+            <li class="eventoLista-item">
+              <div class="eventoLista-item__nome">casamento</div>
+              <div class="eventoLista-item__data">21/07/2024</div>
+            </li>
+          </ul>
+      </section>
+
+      <section class="novoEvento">
+        <form class="novoEvento-form">
+            <fieldset class="novoEvento-form__nome">
+              <label for="novoEventoNome" class="esconder">Nome do Evento:</label>
+              <input type="text" name="novoEventoNome" id="novoEventoNome" placeholder="Nome do evento">
+            </fieldset class="novoEvento-form__data">
+            <fieldset class="teste2">
+              <label for="novoEventoData" class="esconder">Data do Evento:</label>
+              <input type="date" name="novoEventoData" id="novoEventoData">
+            </fieldset>
+          <button type="button" class="novoEvento-form__button novoEventoAdicionar">Adicionar</button>
+        </form>
+      </section>
+
     </section>
   </main>
-  <script src="countdown.js"></script>
+  <!-- <script src="scripts/countdown.js"></script> -->
+  <script src="scripts/main.js"></script>
 </body>
+
 </html>

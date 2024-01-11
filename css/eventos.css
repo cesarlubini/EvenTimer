@@ -1,0 +1,49 @@
+.eventos {
+  flex: 1;
+  margin-block:24px;
+}
+
+.eventosLista {
+  padding: 0;
+}
+
+.eventoLista-item {
+  list-style: none;
+  color: #000;
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 4px;
+  min-width: 200px;
+  margin-bottom: 8px;
+}
+
+/* ------------------- */
+
+.novoEvento {
+  position: relative;
+  max-width: 600px;
+  bottom:0px;
+  padding:16px;
+  background-color: #2F2D37;
+  border-radius: 4px;
+}
+
+.novoEvento-form {
+  display: grid;
+  gap:8px;
+  grid-template-areas:
+  "nome button"
+  "data button"
+}
+
+.novoEvento-form__nome {
+  grid-area: nome;
+}
+
+.novoEvento-form__data {
+  grid-area: data;
+}
+
+.novoEvento-form__button {
+  grid-area: button;
+}
