@@ -1,5 +1,15 @@
 [x] Adicionar campo para entrar data
 [x] Adicionar um campo para o Nome do evento
 [x] Data ser salva no localstorage
-[ ] Desenhar layout conforme referencia
-[ ] Se não tiver data, mudar a frase para "Para começar, cadastre uma data"
+[x] Desenhar formulario de envio
+[ ] Desenhar card de evento
+[ ] Se não tiver evento, mudar a frase para "Para começar, cadastre um evento"
+[ ] Implementar Cronometro
+[ ] Editar data do evento
+[ ] Excluir evento
+[ ] Exibir "É hoje" quando for hoje
+[ ] Exibir "Já passou" quando a data for prévia a hoje
+[ ] Criar lista de eventos passados
+
+[ ] Guardar eventos em um arquivo ou banco de dados
+[ ] criar usuários para salvar dados no banco de dados
