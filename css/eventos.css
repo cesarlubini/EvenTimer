@@ -43,6 +43,13 @@
   font-weight: 800;
 }
 
+@media (max-width:600px) {
+  .eventoLista-item__nome {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
 .eventoLista-item__data {
   min-width: 108px;
   text-align: center;
@@ -54,6 +61,14 @@
   color: #fff;
 }
 
+@media (max-width:600px) {
+  .eventoLista-item__data {
+    min-width: 80px;
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
 /* ------------------- */
 
 .deletarEvento,
@@ -61,6 +76,13 @@
   min-width: 24px;
   aspect-ratio: 1;
   cursor: pointer;
+}
+
+@media (max-width:600px) {
+  .deletarEvento,
+  .editarEvento {
+    min-width: 16px;
+  }
 }
 
 .novoEvento {
