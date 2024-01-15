@@ -20,6 +20,9 @@ function montarListaEventos() {
     listaItem.classList.add("eventoLista-item");
     listaItem.dataset.id = evento.id;
 
+    let listaItemCabecalho = document.createElement('div');
+    listaItemCabecalho.classList.add('eventoLista-item__cabecalho');
+
     let listaItemNome = document.createElement('div');
     listaItemNome.classList.add("eventoLista-item__nome");
     listaItemNome.textContent = evento.nome;
@@ -28,14 +31,31 @@ function montarListaEventos() {
     listaItemData.classList.add("eventoLista-item__data");
     listaItemData.textContent = evento.data;
 
-    let listaItemDelete = document.createElement('button');
+    let listaItemCorpo = document.createElement('div');
+    listaItemCorpo.classList.add('eventoLista-item__corpo');
+
+    let listaItemCronometro = document.createElement('div');
+    listaItemCronometro.classList.add('cronometro');
+    listaItemCronometro.textContent = "00d : 00h : 00m : 00s";
+
+    let listaItemEditar = document.createElement('div');
+    listaItemEditar.classList.add("editarEvento");
+    listaItemEditar.style.background = "url(../assets/icons/editar.svg) no-repeat center";
+
+    let listaItemDelete = document.createElement('div');
     listaItemDelete.classList.add("deletarEvento");
-    listaItemDelete.textContent = "Deletar";
+    listaItemDelete.style.background = "url(../assets/icons/deletar.svg) no-repeat center";
     botaoDeletarEvento(listaItemDelete);
 
-    listaItem.appendChild(listaItemNome);
-    listaItem.appendChild(listaItemData);
-    listaItem.appendChild(listaItemDelete);
+    listaItemCabecalho.appendChild(listaItemNome);
+    listaItemCabecalho.appendChild(listaItemData);
+
+    listaItemCorpo.appendChild(listaItemCronometro);
+    listaItemCorpo.appendChild(listaItemEditar);
+    listaItemCorpo.appendChild(listaItemDelete);
+
+    listaItem.appendChild(listaItemCabecalho);
+    listaItem.appendChild(listaItemCorpo);
 
     listaEventos.appendChild(listaItem);
   })
@@ -73,6 +93,9 @@ botaoAdicionar.addEventListener('click', () => {
 
   eventoNome.value = '';
   eventoData.value = '';
+  
+  //ajuste para adicionar placeholder no <input type="data"/>
+  eventoData.type = 'text';
   
   montarListaEventos();
 })

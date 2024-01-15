@@ -11,13 +11,57 @@
   list-style: none;
   color: #000;
   background-color: #fff;
-  padding: 16px;
   border-radius: 4px;
   min-width: 200px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.eventoLista-item__cabecalho,
+.eventoLista-item__corpo {
+  display: flex;
+}
+
+.eventoLista-item__cabecalho {
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid #000;
+}
+
+.eventoLista-item__corpo {
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px;
+  gap: 24px
+}
+
+.eventoLista-item__nome {
+  color: #2F2D37;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 800;
+}
+
+.eventoLista-item__data {
+  min-width: 108px;
+  text-align: center;
+  background: #484553;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
 }
 
 /* ------------------- */
+
+.deletarEvento,
+.editarEvento {
+  min-width: 24px;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
 
 .novoEvento {
   position: relative;

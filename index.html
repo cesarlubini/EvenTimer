@@ -45,11 +45,22 @@
         <form class="novoEvento-form">
             <fieldset class="novoEvento-form__nome">
               <label for="novoEventoNome" class="esconder">Nome do Evento:</label>
-              <input type="text" name="novoEventoNome" id="novoEventoNome" placeholder="Nome do evento">
+              <input
+                type="text"
+                name="novoEventoNome"
+                id="novoEventoNome"
+                placeholder="Nome do evento">
             </fieldset class="novoEvento-form__data">
             <fieldset class="teste2">
               <label for="novoEventoData" class="esconder">Data do Evento:</label>
-              <input type="date" name="novoEventoData" id="novoEventoData">
+              <!-- funções do onfocus e onblur serve para adicionar placeholder no input-->
+              <input
+                type="text"
+                name="novoEventoData"
+                id="novoEventoData"
+                placeholder="dd/mm/aaaa"
+                onfocus="this.type='date'" 
+                onblur="if (!this.value) this.type='text'">
             </fieldset>
           <button type="button" class="novoEvento-form__button novoEventoAdicionar">Adicionar</button>
         </form>
@@ -62,3 +73,11 @@
 </body>
 
 </html>
+
+<style>
+  .cronometro {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0E5A0E
+  }
+</style>

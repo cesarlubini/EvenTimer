@@ -54,9 +54,8 @@ button {
 
 .conteudo {
   max-width: 600px;
-  min-height: calc(100vh - 48px);
+  min-height: calc(100dvh - 48px);
   margin:0 auto;
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -65,6 +64,7 @@ button {
 .titulo {
   font-size: 24px;
   font-weight: 400;
+  text-align: center;
 }
 
 
