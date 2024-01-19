@@ -1,3 +1,7 @@
+.sem-eventos {
+  text-align: center;
+}
+
 .eventos {
   flex: 1;
   margin-block:24px;
@@ -53,7 +57,7 @@
 }
 
 .eventoLista-item__data {
-  min-width: 96px;
+  min-width: 80px;
   text-align: center;
   background: #484553;
   padding: 4px 8px;
@@ -65,7 +69,7 @@
 
 @media (max-width:600px) {
   .eventoLista-item__data {
-    min-width: 80px;
+    min-width: 72px;
     font-size: 12px;
   }
 }
@@ -86,7 +90,7 @@
   }
 }
 
-.novoEvento {
+.salvarEditarEvento {
   position: relative;
   max-width: 600px;
   bottom:0px;
@@ -95,7 +99,7 @@
   border-radius: 4px;
 }
 
-.novoEvento-form {
+.salvarEditarEvento-form {
   display: grid;
   gap:8px;
   grid-template-areas:
@@ -103,14 +107,14 @@
   "data button"
 }
 
-.novoEvento-form__nome {
+.salvarEditarEvento-form__nome {
   grid-area: nome;
 }
 
-.novoEvento-form__data {
+.salvarEditarEvento-form__data {
   grid-area: data;
 }
 
-.novoEvento-form__button {
+.salvarEditarEvento-form__button {
   grid-area: button;
 }

@@ -9,7 +9,10 @@
 
 [ ] Abrir seleção de data ao clicar no campo "Data" (Hoje é preciso clicar 2x)
 [ ] Criar lista de eventos passados
-[ ] Criar menu de opções para editar e deletar os eventos 
+[ ] Criar menu de opções para editar e deletar os eventos
+[ ] Adicionar link para o github do projeto
+[ ] Criar um Menu
+[ ] Criar uma sessão "Sobre" no Menu
 
 ----------- JS -----------
 
@@ -25,6 +28,7 @@
 [ ] Exibir "É hoje" quando for hoje
 [ ] Exibir "Já passou" quando a data for prévia a hoje
 
+[x] ajustar mensagem do BlankSpace para aparecer e sumir
 [ ] Exibir eventos por ordem de data
 [ ] Notificar que o Evento foi criado/excluido/editado
 [ ] Todos os campos são requeridos

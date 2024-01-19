@@ -1,19 +1,30 @@
 const listaEventos = document.querySelector('.eventosLista');
-const formulario = document.querySelector('.novoEvento-form');
-const eventoNome = formulario.querySelector('#novoEventoNome');
-const eventoData = formulario.querySelector('#novoEventoData');
-const botaoAdicionar = document.querySelector('.novoEventoAdicionar');
+const semEventos = document.querySelector('.sem-eventos');
+const formulario = document.querySelector('.salvarEditarEvento-form');
+const eventoNome = formulario.querySelector('#salvarEditarEventoNome');
+const eventoData = formulario.querySelector('#salvarEditarEventoData');
+const botaoForm = document.querySelector('[data-action]');
 
 // -------------------------- //
 
 let eventos = PegarLocalStorage('eventos') ?? [];
 let eventosId = PegarLocalStorage('eventosId') ?? 0;
+let eventoEditadoObjeto = '';
 
 montarListaEventos();
-// teste
-converterData('2024-01-27');
 
-botaoAdicionar.addEventListener('click', (e) => adicionarEvento(e));
+botaoForm.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const acao = botaoForm.getAttribute('data-action');
+
+  if (acao == 'adicionar') {
+    adicionarEvento();
+  } else if (acao == 'editar') {
+    salvarEventoEditado(eventoEditadoObjeto);
+  }
+});
+
 formulario.addEventListener('keypress', (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
@@ -26,6 +37,14 @@ formulario.addEventListener('keypress', (e) => {
 function PegarLocalStorage(campo) {
   if(localStorage.hasOwnProperty(campo)) {
     return JSON.parse(localStorage.getItem(campo));
+  }
+}
+
+function verificarListaVazia() {
+  if (eventos.length == 0) {
+    semEventos.classList.remove('esconder');
+  } else {
+    semEventos.classList.add('esconder');
   }
 }
 
@@ -56,11 +75,12 @@ function montarEvento(evento) {
   let listaItemEditar = document.createElement('div');
   listaItemEditar.classList.add("editarEvento");
   listaItemEditar.style.background = "url(../assets/icons/editar.svg) no-repeat center";
+  editarEvento(listaItemEditar);
 
   let listaItemDelete = document.createElement('div');
   listaItemDelete.classList.add("deletarEvento");
   listaItemDelete.style.background = "url(../assets/icons/deletar.svg) no-repeat center";
-  botaoDeletarEvento(listaItemDelete);
+  deletarEvento(listaItemDelete);
 
   listaItemCabecalho.appendChild(listaItemNome);
   listaItemCabecalho.appendChild(listaItemData);
@@ -76,20 +96,16 @@ function montarEvento(evento) {
 }
 
 function montarListaEventos() {
-  if (eventos.length == 0) {
-    listaEventos.innerHTML = 'Nenhum evento cadastrado.';
-  } else {
-    listaEventos.innerHTML = '';
-  }
+  verificarListaVazia()
 
   eventos.forEach(evento => {
     listaEventos.appendChild(montarEvento(evento));
   })
 }
 
-function botaoDeletarEvento(botao) {
+function deletarEvento(botao) {
   botao.addEventListener('click', (event) => {
-    event.stopPropagation();
+    event.preventDefault();
     let liEvento = botao.closest('[data-id]');
     let liEventoId = liEvento.dataset.id;
 
@@ -98,11 +114,12 @@ function botaoDeletarEvento(botao) {
     liEvento.remove();
 
     localStorage.setItem('eventos', JSON.stringify(eventosAtualizados));
+
+    verificarListaVazia()
   })
 }
 
-function adicionarEvento(e) {
-  e.preventDefault();
+function adicionarEvento() {
 
   let evento = {
     id: eventosId,
@@ -117,11 +134,54 @@ function adicionarEvento(e) {
 
   eventoNome.value = '';
   eventoData.value = '';
-  
-  //ajuste para adicionar placeholder no <input type="data"/>
-  eventoData.type = 'text';
-  
+
   listaEventos.appendChild(montarEvento(evento));
+  
+  verificarListaVazia()
+}
+
+function editarEvento(botao) {
+  botao.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    let eventoEditadoId = botao.closest('[data-id]').dataset.id;
+    eventoEditadoObjeto = eventos.find(evento => evento.id == eventoEditadoId);
+
+    eventoNome.value = eventoEditadoObjeto.nome;
+    eventoData.value = eventoEditadoObjeto.data;
+
+    botaoForm.setAttribute('data-action', 'editar');
+    botaoForm.textContent = 'Salvar';
+  })
+}
+
+function salvarEventoEditado(eventoObjeto) {
+
+  const eventoItemEditado = document.querySelector(`[data-id="${eventoObjeto.id}"]`);
+  const eventoItemEditadoNome = eventoItemEditado.querySelector('.eventoLista-item__nome');
+  const eventoItemEditadoData = eventoItemEditado.querySelector('.eventoLista-item__data');
+
+  eventoItemEditadoNome.textContent = eventoNome.value;
+  eventoItemEditadoData.textContent = converterData(eventoData.value);
+
+  eventoObjeto.nome = eventoNome.value;
+  eventoObjeto.data = eventoData.value;
+
+  let eventosAtualizados = eventos.map(evento => {
+    if (evento.id == eventoObjeto.id) {
+      return {...evento, ...eventoObjeto};
+    }
+    return evento;
+  })
+
+  eventos = eventosAtualizados;
+  localStorage.setItem('eventos', JSON.stringify(eventos));
+
+  eventoNome.value = '';
+  eventoData.value = '';
+
+  botaoForm.setAttribute('data-action', 'adicionar');
+  botaoForm.textContent = 'Adicionar';
 }
 
 function converterData(dataEvento) {
@@ -140,3 +200,4 @@ function converterData(dataEvento) {
 
   return dataConvertidaRetorno;
 }
+

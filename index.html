@@ -37,33 +37,31 @@
       <h2 class="titulo">Eventos Cadastrados</h2>
       <span class="separador"></span>
       <section class="eventos">
+          <div class="sem-eventos">Nenhum evento cadastrado.</div>
           <ul class="eventosLista">
           </ul>
       </section>
 
-      <section class="novoEvento">
-        <form class="novoEvento-form">
-            <fieldset class="novoEvento-form__nome">
-              <label for="novoEventoNome" class="esconder">Nome do Evento:</label>
+      <section class="salvarEditarEvento">
+        <form class="salvarEditarEvento-form">
+            <fieldset class="salvarEditarEvento-form__nome">
+              <label for="salvarEditarEventoNome" class="esconder">Nome do Evento:</label>
               <input
                 type="text"
-                name="novoEventoNome"
-                id="novoEventoNome"
+                name="salvarEditarEventoNome"
+                id="salvarEditarEventoNome"
                 placeholder="Nome do evento">
-            </fieldset class="novoEvento-form__data">
+            </fieldset class="salvarEditarEvento-form__data">
             <fieldset class="teste2">
-              <label for="novoEventoData" class="esconder">Data do Evento:</label>
+              <label for="salvarEditarEventoData" class="esconder">Data do Evento:</label>
               <!-- funções do onfocus e onblur serve para adicionar placeholder no input-->
               <input
-              required
-                type="text"
-                name="novoEventoData"
-                id="novoEventoData"
-                placeholder="dd/mm/aaaa"
-                onfocus="this.type='date'" 
-                onblur="if (!this.value) this.type='text'">
+                type="date"
+                name="salvarEditarEventoData"
+                id="salvarEditarEventoData"
+              >
             </fieldset>
-          <button type="button" class="novoEvento-form__button novoEventoAdicionar">Adicionar</button>
+          <button type="submit" class="salvarEditarEvento-form__button" data-action="adicionar">Adicionar</button>
         </form>
       </section>
 
