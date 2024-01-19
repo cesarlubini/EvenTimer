@@ -20,15 +20,15 @@
 [x] Desenhar formulario de envio
 [x] Excluir evento
 [x] Se não tiver evento, mudar a frase para "Nenhum evento cadastrado."
-[x] Ajustar código do botaoAdicionar para ele não consumir montarListaEvento
+[x] Ajustar código do botaoForm para ele não consumir montarListaEvento
 [x] Enviar formulário apertando "Enter"
 [x] Formatar data em DD/MM/YYYY
-[ ] Editar evento
+[x] ajustar mensagem do BlankSpace para aparecer e sumir
+[x] Editar evento
 [ ] Implementar Cronometro
 [ ] Exibir "É hoje" quando for hoje
 [ ] Exibir "Já passou" quando a data for prévia a hoje
 
-[x] ajustar mensagem do BlankSpace para aparecer e sumir
 [ ] Exibir eventos por ordem de data
 [ ] Notificar que o Evento foi criado/excluido/editado
 [ ] Todos os campos são requeridos
