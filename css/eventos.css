@@ -42,6 +42,12 @@
   gap: 24px
 }
 
+@media (max-width:600px) {
+  .eventoLista-item__corpo {
+    padding: 24px 16px;
+  }
+}
+
 .eventoLista-item__nome {
   color: #2F2D37;
   font-size: 22px;

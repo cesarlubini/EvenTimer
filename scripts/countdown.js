@@ -1,19 +1,45 @@
-const dia = 10;
-const mes = 12;
-const ano = 2024;
+function construirTimerHTML() {
 
-const finalDate = new Date(ano, mes - 1, dia).getTime();
+  return divTimer = `
+    <div class="today hide">A data Chegou!</div>
+    <section class="countdown">
+      <div class="block">
+        <p class="day digit">00</p>
+        <p class="text">Dia(s)</p> 
+      </div>
+      <div class="block">
+        <p class="hour digit">00</p>
+        <p class="text">Hora(s)</p> 
+      </div>
+      <div class="block">
+        <p class="minute digit">00</p>
+        <p class="text">Min(s)</p> 
+      </div>
+      <div class="block">
+        <p class="second digit">00</p>
+        <p class="text">Seg(s)</p> 
+      </div>
+    </section>
+  `;
+}
 
-const $ = document.querySelector.bind(document);
-const dayInput = $('.day');
-const hourInput = $('.hour');
-const minuteInput = $('.minute');
-const secondInput = $('.second');
+function contagemRegressiva(evento) {
 
-const countdownInput = $('.countdown');
-const todayInput = $('.today');
+  const eventoDataTimer = evento.data.split("-");
+  const ano = eventoDataTimer[0];
+  const mes = eventoDataTimer[1];
+  const dia = eventoDataTimer[2];
+  const finalDate = new Date(ano, mes - 1, dia).getTime();
+  
+  const eventoElement = document.querySelector(`[data-id="${evento.id}"]`);
+  const countdownInput = eventoElement.querySelector('.countdown');
+  const todayInput = eventoElement.querySelector('.today');
+  const dayInput = eventoElement.querySelector('.day');
+  const hourInput = eventoElement.querySelector('.hour');
+  const minuteInput = eventoElement.querySelector('.minute');
+  const secondInput = eventoElement.querySelector('.second');
 
-let countdown = setInterval(function () {
+  countdown = setInterval(function () {
     const now = new Date().getTime();
   
     const diference = finalDate - now;
@@ -27,11 +53,13 @@ let countdown = setInterval(function () {
     hourInput.innerHTML = hours;
     minuteInput.innerHTML = minutes;
     secondInput.innerHTML = seconds;
-
+  
     if (diference < 0) {
       clearInterval(countdown);
-      todayInput.classList.remove('esconder');
-      countdownInput.classList.add('esconder');
+      todayInput.classList.remove('hide');
+      countdownInput.classList.add('hide');
     }
-
+  
   },1000);
+
+}

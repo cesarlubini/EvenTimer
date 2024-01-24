@@ -1,3 +1,5 @@
+[ ] Trocar o nome do projeto para EvenTimer
+[ ] Configurar readme no github
 
 -------- HTML/CSS --------
 
@@ -13,6 +15,7 @@
 [ ] Adicionar link para o github do projeto
 [ ] Criar um Menu
 [ ] Criar uma sessão "Sobre" no Menu
+[ ] Adicionar campo de "Horas"
 
 ----------- JS -----------
 
@@ -38,5 +41,3 @@
 
 [ ] Guardar eventos em um arquivo ou banco de dados
 [ ] criar usuários para salvar dados no banco de dados
-
-

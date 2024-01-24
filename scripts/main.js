@@ -10,6 +10,7 @@ const botaoForm = document.querySelector('[data-action]');
 let eventos = PegarLocalStorage('eventos') ?? [];
 let eventosId = PegarLocalStorage('eventosId') ?? 0;
 let eventoEditadoObjeto = '';
+let countdown;
 
 montarListaEventos();
 
@@ -70,7 +71,7 @@ function montarEvento(evento) {
 
   let listaItemCronometro = document.createElement('div');
   listaItemCronometro.classList.add('cronometro');
-  listaItemCronometro.textContent = "00d : 00h : 00m : 00s";
+  listaItemCronometro.innerHTML = construirTimerHTML();
 
   let listaItemEditar = document.createElement('div');
   listaItemEditar.classList.add("editarEvento");
@@ -100,6 +101,7 @@ function montarListaEventos() {
 
   eventos.forEach(evento => {
     listaEventos.appendChild(montarEvento(evento));
+    contagemRegressiva(evento);
   })
 }
 
@@ -137,7 +139,8 @@ function adicionarEvento() {
 
   listaEventos.appendChild(montarEvento(evento));
   
-  verificarListaVazia()
+  contagemRegressiva(evento);
+  verificarListaVazia();
 }
 
 function editarEvento(botao) {
@@ -166,6 +169,12 @@ function salvarEventoEditado(eventoObjeto) {
 
   eventoObjeto.nome = eventoNome.value;
   eventoObjeto.data = eventoData.value;
+
+  // Esse if deveria estar dentro da função contagemRegressiva, mas não sei como fazer
+  if(countdown) {
+    clearInterval(countdown);
+  }
+  contagemRegressiva(eventoObjeto);
 
   let eventosAtualizados = eventos.map(evento => {
     if (evento.id == eventoObjeto.id) {
@@ -200,4 +209,3 @@ function converterData(dataEvento) {
 
   return dataConvertidaRetorno;
 }
-
