@@ -28,8 +28,10 @@
 [x] Formatar data em DD/MM/YYYY
 [x] ajustar mensagem do BlankSpace para aparecer e sumir
 [x] Editar evento
-[ ] Implementar Cronometro
-[ ] Exibir "É hoje" quando for hoje
+[x] Implementar Cronometro
+[x] Exibir "É hoje" quando for hoje
+[x] Exibir cronometro quando a data for alterada e já passou
+
 [ ] Exibir "Já passou" quando a data for prévia a hoje
 
 [ ] Exibir eventos por ordem de data

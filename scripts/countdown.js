@@ -1,7 +1,7 @@
 function construirTimerHTML() {
 
   return divTimer = `
-    <div class="today hide">A data Chegou!</div>
+    <div class="today">A data Chegou!</div>
     <section class="countdown">
       <div class="block">
         <p class="day digit">00</p>
@@ -58,6 +58,9 @@ function contagemRegressiva(evento) {
       clearInterval(countdown);
       todayInput.classList.remove('hide');
       countdownInput.classList.add('hide');
+    } else {
+      todayInput.classList.add('hide');
+      countdownInput.classList.remove('hide');
     }
   
   },1000);
