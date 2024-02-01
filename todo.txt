@@ -1,5 +1,5 @@
-[ ] Trocar o nome do projeto para EvenTimer
-[ ] Configurar readme no github
+[x] Trocar o nome do projeto para EvenTimer
+[x] Configurar readme no github
 
 -------- HTML/CSS --------
 
