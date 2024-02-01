@@ -7,7 +7,7 @@ Com o **EvenTimer** você consegue cadastrar seus eventos e ter um cronômetro e
 
 ## Como Utilizar
 
-[Clique aqui para abrir no navegador](https://counter-cesarlubini.vercel.app/) ou clone o repositório para a sua maquina e abra o index.html
+[Clique aqui para abrir no navegador](https://eventimer.vercel.app/) ou clone o repositório para a sua maquina e abra o index.html
 
 ## Tecnologia utilizada
 
