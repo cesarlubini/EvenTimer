@@ -5,7 +5,7 @@
 [x] Desenhar card de evento
 [x] Ajustar altura total da tela no mobile
 [x] Placeholder do campo "Data" no mobile
->> [ ] Animações e hoverss
+[x] Animações e hovers
 
 [ ] Abrir seleção de data ao clicar no campo "Data" (Hoje é preciso clicar 2x)
 [ ] Criar lista de eventos passados
