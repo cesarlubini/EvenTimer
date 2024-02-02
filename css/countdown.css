@@ -1,3 +1,15 @@
+.cronometro {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0E5A0E
+}
+
+@media (max-width:600px) {
+  .cronometro{
+    font-size: 20px;
+  }
+}
+
 .countdown {
   display: flex;
   justify-content: center;

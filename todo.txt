@@ -1,13 +1,11 @@
-[x] Trocar o nome do projeto para EvenTimer
-[x] Configurar readme no github
-
--------- HTML/CSS --------
+--- HTML/CSS --------
 
 [x] Adicionar campo para entrar data
 [x] Adicionar um campo para o Nome do evento
 [x] Desenhar card de evento
 [x] Ajustar altura total da tela no mobile
 [x] Placeholder do campo "Data" no mobile
+>> [ ] Animações e hoverss
 
 [ ] Abrir seleção de data ao clicar no campo "Data" (Hoje é preciso clicar 2x)
 [ ] Criar lista de eventos passados
@@ -17,7 +15,7 @@
 [ ] Criar uma sessão "Sobre" no Menu
 [ ] Adicionar campo de "Horas"
 
------------ JS -----------
+--- JS --------------
 
 [x] Data ser salva no localstorage
 [x] Desenhar formulario de envio
@@ -31,15 +29,18 @@
 [x] Implementar Cronometro
 [x] Exibir "É hoje" quando for hoje
 [x] Exibir cronometro quando a data for alterada e já passou
+[x] Todos os campos são requeridos
+>> [ ] Notificar que o Evento foi criado/excluido/editado
 
 [ ] Exibir "Já passou" quando a data for prévia a hoje
-
 [ ] Exibir eventos por ordem de data
-[ ] Notificar que o Evento foi criado/excluido/editado
-[ ] Todos os campos são requeridos
-[ ] Validação dos campos
 
----------- Dado ----------
+--- Dados ------------
 
 [ ] Guardar eventos em um arquivo ou banco de dados
 [ ] criar usuários para salvar dados no banco de dados
+
+--- Outros ----------
+
+[x] Trocar o nome do projeto para EvenTimer
+[x] Configurar readme no github

@@ -14,7 +14,7 @@ let countdown;
 
 montarListaEventos();
 
-botaoForm.addEventListener('click', (e) => {
+formulario.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const acao = botaoForm.getAttribute('data-action');
@@ -23,13 +23,6 @@ botaoForm.addEventListener('click', (e) => {
     adicionarEvento();
   } else if (acao == 'editar') {
     salvarEventoEditado(eventoEditadoObjeto);
-  }
-});
-
-formulario.addEventListener('keypress', (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    adicionarEvento(e);
   }
 });
 
@@ -73,14 +66,18 @@ function montarEvento(evento) {
   listaItemCronometro.classList.add('cronometro');
   listaItemCronometro.innerHTML = construirTimerHTML();
 
-  let listaItemEditar = document.createElement('div');
+  let listaItemEditar = document.createElement('button');
   listaItemEditar.classList.add("editarEvento");
-  listaItemEditar.style.background = "url(../assets/icons/editar.svg) no-repeat center";
+  let listaItemEditarIcon = document.createElement('i');
+  listaItemEditarIcon.classList.add("icon","fa-solid","fa-pencil");
+  listaItemEditar.appendChild(listaItemEditarIcon);
   editarEvento(listaItemEditar);
 
-  let listaItemDelete = document.createElement('div');
+  let listaItemDelete = document.createElement('button');
   listaItemDelete.classList.add("deletarEvento");
-  listaItemDelete.style.background = "url(../assets/icons/deletar.svg) no-repeat center";
+  let listaItemDeletarIcon = document.createElement('i');
+  listaItemDeletarIcon.classList.add("icon","fa-regular","fa-trash-can");
+  listaItemDelete.appendChild(listaItemDeletarIcon);
   deletarEvento(listaItemDelete);
 
   listaItemCabecalho.appendChild(listaItemNome);

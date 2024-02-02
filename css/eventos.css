@@ -20,6 +20,12 @@
   min-width: 200px;
   margin-bottom: 16px;
   text-align: left;
+  transition: transform 300ms;
+}
+
+.eventoLista-item:hover,
+.eventoLista-item:focus-within {
+  transform: scale(1.025);
 }
 
 .eventoLista-item__cabecalho,
@@ -84,9 +90,10 @@
 
 .deletarEvento,
 .editarEvento {
-  min-width: 24px;
+  min-width: 32px;
   aspect-ratio: 1;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 @media (max-width:600px) {
@@ -94,6 +101,38 @@
   .editarEvento {
     min-width: 16px;
   }
+}
+
+.deletarEvento .icon,
+.editarEvento .icon{
+  color:#2F2D37;
+  font-size: 24px;
+  transition: color 250ms;
+}
+
+@media (max-width:600px) {
+  .deletarEvento .icon,
+  .editarEvento .icon{
+    font-size: 16px;
+  }
+}
+
+.deletarEvento:focus {
+  outline:2px solid #E14339;
+}
+
+.editarEvento:focus {
+  outline:2px solid #169116;
+}
+
+.deletarEvento:hover .icon,
+.deletarEvento:focus .icon{
+  color:#E14339;
+}
+
+.editarEvento:hover .icon,
+.editarEvento:focus .icon {
+  color: #169116;
 }
 
 .salvarEditarEvento {
