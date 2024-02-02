@@ -4,6 +4,7 @@ const formulario = document.querySelector('.salvarEditarEvento-form');
 const eventoNome = formulario.querySelector('#salvarEditarEventoNome');
 const eventoData = formulario.querySelector('#salvarEditarEventoData');
 const botaoForm = document.querySelector('[data-action]');
+const divMensagem = document.querySelector('.mensagem');
 
 // -------------------------- //
 
@@ -21,8 +22,10 @@ formulario.addEventListener('submit', (e) => {
 
   if (acao == 'adicionar') {
     adicionarEvento();
+    mostrarMensagem("adicionar");
   } else if (acao == 'editar') {
     salvarEventoEditado(eventoEditadoObjeto);
+    mostrarMensagem("editar");
   }
 });
 
@@ -66,6 +69,9 @@ function montarEvento(evento) {
   listaItemCronometro.classList.add('cronometro');
   listaItemCronometro.innerHTML = construirTimerHTML();
 
+  let listaItemOpcoes = document.createElement('div');
+  listaItemOpcoes.classList.add("evento-opcoes");
+
   let listaItemEditar = document.createElement('button');
   listaItemEditar.classList.add("editarEvento");
   let listaItemEditarIcon = document.createElement('i');
@@ -82,10 +88,12 @@ function montarEvento(evento) {
 
   listaItemCabecalho.appendChild(listaItemNome);
   listaItemCabecalho.appendChild(listaItemData);
-
+  
+  listaItemOpcoes.appendChild(listaItemEditar);
+  listaItemOpcoes.appendChild(listaItemDelete);
+  
   listaItemCorpo.appendChild(listaItemCronometro);
-  listaItemCorpo.appendChild(listaItemEditar);
-  listaItemCorpo.appendChild(listaItemDelete);
+  listaItemCorpo.appendChild(listaItemOpcoes);
 
   listaItem.appendChild(listaItemCabecalho);
   listaItem.appendChild(listaItemCorpo);
@@ -111,6 +119,7 @@ function deletarEvento(botao) {
     let eventosAtualizados = eventos.filter(evento => evento.id != liEventoId);
     eventos = eventosAtualizados;
     liEvento.remove();
+    mostrarMensagem("excluir");
 
     localStorage.setItem('eventos', JSON.stringify(eventosAtualizados));
 
@@ -205,4 +214,23 @@ function converterData(dataEvento) {
   let dataConvertidaRetorno = dataConvertida.join('/');
 
   return dataConvertidaRetorno;
+}
+
+const mensagensParaUsuario = {
+  'adicionar' : 'Seu evento foi adicionado!',
+  'editar' : 'Seu evento foi editado!',
+  'excluir' : 'Seu evento foi excluído!'
+}
+
+function mostrarMensagem(acao) {
+  divMensagem.textContent = ""
+
+  let mensagemParaMostrar = mensagensParaUsuario[acao];
+  
+  divMensagem.textContent = mensagemParaMostrar;
+  divMensagem.style.bottom = "0";
+  
+  setTimeout(() => {
+    divMensagem.style.bottom = "-64px";
+  },1500);
 }

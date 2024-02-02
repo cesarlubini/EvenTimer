@@ -93,3 +93,27 @@ button {
   border-bottom: 1px solid #fff;
   margin: 12px auto;
 }
+
+/* ------------------- */
+
+.mensagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  bottom: -64px;
+  left:50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 300px;
+  height: 64px;
+  margin: auto;
+  background-color: #fff;
+  color: #484553;
+  font-size: 16px;
+  font-weight: 900;
+  border-radius:4px 4px 0 0;
+  box-shadow: 0px 4px 12px #2F2D37;
+  transition: bottom 300ms ease-in-out;
+}
